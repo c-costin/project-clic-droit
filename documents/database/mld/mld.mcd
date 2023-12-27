@@ -1,0 +1,8 @@
+%%mocodo
+:
+WORKSITE: code_WORKSITE, name
+:
+POSSESS: #code_WORKSITE > WORKSITE > code_WORKSITE, _#code_SERVICE > SERVICE > code_SERVICE, value, month
+:
+SERVICE: code_SERVICE, name
+:
