@@ -1,0 +1,23 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Costin\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "c-costin",
+            "email": "contact@costincadeau.fr"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.12",
+        "slim/psr7": "^1.6",
+        "httpsoft/http-message": "^1.1",
+        "httpsoft/http-server-request": "^1.1",
+        "nyholm/psr7": "^1.8",
+        "nyholm/psr7-server": "^1.1",
+        "guzzlehttp/psr7": "^2.6",
+        "laminas/laminas-diactoros": "^3.3"
+    }
+}
