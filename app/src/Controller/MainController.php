@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 use App\Models\ServiceWorksiteModel;
 
@@ -13,11 +13,11 @@ class MainController extends CoreController
      */
     public function home()
     {
-        $serviceWorksiteModel = new ServiceWorksiteModel();
-        $allServiceWorksite = $serviceWorksiteModel->findAll();
+        // $serviceWorksiteModel = new ServiceWorksiteModel();
+        // $allServiceWorksite = $serviceWorksiteModel->findAll();
 
         $this->show('home', [
-            'allServiceWorksite' => $allServiceWorksite
+            // 'allServiceWorksite' => $allServiceWorksite
         ]);
     }
 }

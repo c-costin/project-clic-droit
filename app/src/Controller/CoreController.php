@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 class CoreController
 {
@@ -18,6 +18,8 @@ class CoreController
 
         extract($viewData);
 
+        require_once __DIR__ . "/../Views/partials/header.tpl.php";
         require_once __DIR__ . "/../Views/{$viewName}.tpl.php";
+        require_once __DIR__ . "/../Views/partials/footer.tpl.php";
     }
 }

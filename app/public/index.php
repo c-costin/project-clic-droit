@@ -1,16 +1,40 @@
 <?php
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Factory\AppFactory;
 
+// Include Depandencies
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = AppFactory::create();
+// Init Router
+// @see https://github.com/dannyvankooten/AltoRouter
+$router = new AltoRouter();
 
-$app->get('/', function (Request $request, Response $response, $args) {
-    $response->getBody()->write("Hello world!");
-    return $response;
-});
+// Set BaseURL
+$router->setBasePath($_SERVER['BASE_URI']);
 
-$app->run();
+//! Raods -> MainController
+// ------------------------------------------------------
 
+// => home [static]
+$router->map(
+    'GET',
+    '/',
+    [
+        'method' => 'home',
+        'controller' => '\App\Controller\MainController'
+    ],
+    'main-home'
+);
+
+//! Roads -> ServiceWorksiteAPI
+// ------------------------------------------------------
+
+
+
+//! Match URl
+// ------------------------------------------------------
+$match = $router->match();
+
+//! Dispatcher
+// ------------------------------------------------------
+// @see : https://packagist.org/packages/benoclock/alto-dispatcher
+$dispatcher = new Dispatcher($match, '\App\Controllers\ErrorController::page404');
+$dispatcher->dispatch();
