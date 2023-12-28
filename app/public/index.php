@@ -12,7 +12,6 @@ $router->setBasePath($_SERVER['BASE_URI']);
 
 //! Raods -> MainController
 // ------------------------------------------------------
-
 // => home [static]
 $router->map(
     'GET',
@@ -26,8 +25,38 @@ $router->map(
 
 //! Roads -> ServiceWorksiteAPI
 // ------------------------------------------------------
+// => browse [static]
+$router->map(
+    'GET',
+    '/api/services',
+    [
+        'method' => 'browse',
+        'controller' => '\App\Controller\Api\ServiceWorksiteController'
+    ],
+    'serviceWorksite-browse'
+);
 
+// => add [static]
+$router->map(
+    'POST',
+    '/api/service/add',
+    [
+        'method' => 'add',
+        'controller' => '\App\Controller\Api\ServiceWorksiteController'
+    ],
+    'serviceWorksite-add'
+);
 
+// => delete [dynamic]
+$router->map(
+    'DELETE',
+    '//api/service/delete/{id}',
+    [
+        'method' => 'delete',
+        'controller' => '\App\Controller\Api\ServiceWorksiteController'
+    ],
+    'serviceWorksite-delete'
+);
 
 //! Match URl
 // ------------------------------------------------------
