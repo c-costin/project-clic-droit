@@ -50,7 +50,7 @@ $router->map(
 // => delete [dynamic]
 $router->map(
     'DELETE',
-    '//api/service/delete/{id}',
+    '/api/service/delete/[i:id]',
     [
         'method' => 'delete',
         'controller' => '\App\Controller\Api\ServiceWorksiteController'
@@ -65,5 +65,5 @@ $match = $router->match();
 //! Dispatcher
 // ------------------------------------------------------
 // @see : https://packagist.org/packages/benoclock/alto-dispatcher
-$dispatcher = new Dispatcher($match, '\App\Controllers\ErrorController::page404');
+$dispatcher = new Dispatcher($match, '\App\Controller\ErrorController::page404');
 $dispatcher->dispatch();

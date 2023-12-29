@@ -49,6 +49,54 @@
             </tr>
         </thead>
         <tbody>
+
+            <!-- Dynamic row -->
+            <?php foreach ($allServiceWorksite as $serviceWorksite) : ?>
+                <tr style="font-style:normal">
+                    <td></td>
+                    <td>AM PRODUCTION (AMP0301)</td>
+                    <td>Vitrerie</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>21.67</td>
+                    <td>260,04</td>
+                    <td>
+                        <a href="#" class="btn btn-xs btn-danger js-btnDeleteService" data-id="<?php echo $serviceWorksite->getId() ?>" ><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+
+            <!-- Old rows -->
+            <tr style="font-style:normal">
+                <td></td>
+                <td>AM PRODUCTION (AMP0301)</td>
+                <td>Vitrerie</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>21.67</td>
+                <td>260,04</td>
+                <td>
+                    <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
             <tr style="font-style:normal">
                 <td></td>
                 <td>AM PRODUCTION (AMP0301)</td>
@@ -133,6 +181,8 @@
                     <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
+
+            <!-- Total row -->
             <tr>
                 <td></td>
                 <td><b>TOTAL Heures</b></td>
@@ -249,7 +299,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Valider</button>
+                <button type="button" class="btn btn-primary js-btnSubmitService">Valider</button>
             </div>
         </div>
     </div>
