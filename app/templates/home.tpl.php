@@ -1,3 +1,9 @@
+<?php
+
+use App\Model\Worksite;
+
+include_once __DIR__ . '/partials/header.tpl.php' ?>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
@@ -48,141 +54,32 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-
-            <!-- Dynamic row -->
+        <tbody id="rows">
             <?php foreach ($allServiceWorksite as $serviceWorksite) : ?>
-                <tr style="font-style:normal">
+                <tr style="font-style:normal" data-id="<?= $serviceWorksite['id'] ?>" <?= count($allServiceWorksite) === $serviceWorksite['id'] ? 'data-lastervice' : '' ?>>
                     <td></td>
-                    <td>AM PRODUCTION (AMP0301)</td>
-                    <td>Vitrerie</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>21.67</td>
-                    <td>260,04</td>
+                    <td><?= $serviceWorksite['worksite'] ?></td>
+                    <td><?= $serviceWorksite['service'] ?></td>
+                    <td><?= $serviceWorksite['january'] ?></td>
+                    <td><?= $serviceWorksite['february'] ?></td>
+                    <td><?= $serviceWorksite['march'] ?></td>
+                    <td><?= $serviceWorksite['april'] ?></td>
+                    <td><?= $serviceWorksite['may'] ?></td>
+                    <td><?= $serviceWorksite['june'] ?></td>
+                    <td><?= $serviceWorksite['july'] ?></td>
+                    <td><?= $serviceWorksite['august'] ?></td>
+                    <td><?= $serviceWorksite['september'] ?></td>
+                    <td><?= $serviceWorksite['october'] ?></td>
+                    <td><?= $serviceWorksite['november'] ?></td>
+                    <td><?= $serviceWorksite['december'] ?></td>
+                    <td><?= round($serviceWorksite['total'], 2) ?></td>
                     <td>
-                        <a href="#" class="btn btn-xs btn-danger js-btnDeleteService" data-id="<?php echo $serviceWorksite->getId() ?>" ><i class="fa fa-trash"></i></a>
+                        <button class="btn btn-xs btn-danger js-btnDeleteService"><i class="fa fa-trash"></i></button>
                     </td>
                 </tr>
             <?php endforeach ?>
-
-            <!-- Old rows -->
-            <tr style="font-style:normal">
-                <td></td>
-                <td>AM PRODUCTION (AMP0301)</td>
-                <td>Vitrerie</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>260,04</td>
-                <td>
-                    <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
-                </td>
-            </tr>
-            <tr style="font-style:normal">
-                <td></td>
-                <td>AM PRODUCTION (AMP0301)</td>
-                <td>Vitrerie</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>21.67</td>
-                <td>260,04</td>
-                <td>
-                    <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
-                </td>
-            </tr>
-            <tr style="font-style:normal">
-                <td></td>
-                <td>AM PRODUCTION (AMP0301)</td>
-                <td>Remise en état mensuelle</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>36,00</td>
-                <td>
-                    <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
-                </td>
-            </tr>
-            <tr style="font-style:normal">
-                <td></td>
-                <td>ADOMOS (ADM0101)</td>
-                <td>Vitrerie</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>36,00</td>
-                <td>
-                    <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
-                </td>
-            </tr>
-            <tr style="font-style:normal">
-                <td></td>
-                <td>ADOMOS (ADM0101)</td>
-                <td>Remise en état mensuelle</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>36,00</td>
-                <td>
-                    <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
-                </td>
-            </tr>
-
-            <!-- Total row -->
+        </tbody>
+        <tfoot>
             <tr>
                 <td></td>
                 <td><b>TOTAL Heures</b></td>
@@ -202,9 +99,10 @@
                 <td><b>368.04</b></td>
                 <td></td>
             </tr>
-        </tbody>
+        </tfoot>
     </table>
 </div>
+
 <!--main-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -223,15 +121,17 @@
                                         <label for="" class="col-sm-1">Chantier</label>
                                         <div class="col-sm-4" id="select_chantier_container">
                                             <select class="form-control input-sm" name="heure_chantier" id="heure_chantier" type="text">
-                                                <option>AM PRODUCTION</option>
-                                                <option>ADOMOS</option>
+                                                <?php foreach ($allWorksite as $worksite) : ?>
+                                                    <option value="<?= $worksite['id'] ?>"><?= $worksite['name'] ?></option>
+                                                <?php endforeach ?>
                                             </select>
                                         </div>
                                         <label for="" class="col-sm-1">Prestation</label>
                                         <div class="col-sm-4" id="select_chantier_container">
-                                            <select class="form-control input-sm" name="heure_chantier" id="heure_chantier" type="text">
-                                                <option>Vitrerie</option>
-                                                <option>Remise en état mensuelle</option>
+                                            <select class="form-control input-sm" name="heure_prestation" id="heure_prestation" type="text">
+                                                <?php foreach ($allService as $service) : ?>
+                                                    <option value="<?= $service['id'] ?>"><?= $service['name'] ?></option>
+                                                <?php endforeach ?>
                                             </select>
                                         </div>
                                     </div>
@@ -243,51 +143,51 @@
                                         <div class="form-group" id="form-heures-classiques">
                                             <div class="col-xs-2">
                                                 <label>Janvier</label>
-                                                <input class="form-control input-sm" id="heure_mois_1" name="heure_mois_1" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_1" name="heure_mois_1" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Février</label>
-                                                <input class="form-control input-sm" id="heure_mois_2" name="heure_mois_2" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_2" name="heure_mois_2" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Mars</label>
-                                                <input class="form-control input-sm" id="heure_mois_3" name="heure_mois_3" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_3" name="heure_mois_3" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Avril</label>
-                                                <input class="form-control input-sm" id="heure_mois_4" name="heure_mois_4" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_4" name="heure_mois_4" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Mai</label>
-                                                <input class="form-control input-sm" id="heure_mois_5" name="heure_mois_5" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_5" name="heure_mois_5" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Juin</label>
-                                                <input class="form-control input-sm" id="heure_mois_6" name="heure_mois_6" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_6" name="heure_mois_6" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Juillet</label>
-                                                <input class="form-control input-sm" id="heure_mois_7" name="heure_mois_7" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_7" name="heure_mois_7" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Août</label>
-                                                <input class="form-control input-sm" id="heure_mois_8" name="heure_mois_8" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_8" name="heure_mois_8" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Septembre</label>
-                                                <input class="form-control input-sm" id="heure_mois_9" name="heure_mois_9" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_9" name="heure_mois_9" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Octobre</label>
-                                                <input class="form-control input-sm" id="heure_mois_10" name="heure_mois_10" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_10" name="heure_mois_10" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Novembre</label>
-                                                <input class="form-control input-sm" id="heure_mois_11" name="heure_mois_11" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_11" name="heure_mois_11" placeholder="0" type="text">
                                             </div>
                                             <div class="col-xs-2">
                                                 <label>Décembre</label>
-                                                <input class="form-control input-sm" id="heure_mois_12" name="heure_mois_12" value="0" type="text">
+                                                <input class="form-control input-sm" id="heure_mois_12" name="heure_mois_12" placeholder="0" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -299,8 +199,34 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary js-btnSubmitService">Valider</button>
+                <button type="button" class="btn btn-primary js-btnSubmitService" data-dismiss="modal">Valider</button>
             </div>
         </div>
     </div>
 </div>
+
+<template id="service-template">
+    <tr style="font-style:normal" data-id="">
+        <td></td>
+        <td data-worksite></td>
+        <td data-service></td>
+        <td data-january></td>
+        <td data-february></td>
+        <td data-march></td>
+        <td data-april></td>
+        <td data-may></td>
+        <td data-june></td>
+        <td data-july></td>
+        <td data-august></td>
+        <td data-september></td>
+        <td data-october></td>
+        <td data-november></td>
+        <td data-december></td>
+        <td data-hourMonthTotal></td>
+        <td>
+            <button class="btn btn-xs btn-danger js-btnDeleteService"><i class="fa fa-trash"></i></button>
+        </td>
+    </tr>
+</template>
+
+<?php include_once __DIR__ . '/partials/header.tpl.php' ?>
